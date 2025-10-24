@@ -1,0 +1,135 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#">ShopBrand</a>
+            <button class="cart-button" aria-label="Open cart" id="openCartBtn">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container product-page">
+        <section class="gallery">
+            <div class="main-image" id="mainImageWrap">
+                <img id="mainImage" src="assets/prod-1.jpg" alt="Primary product image" />
+                <div class="zoom-lens" id="zoomLens" aria-hidden="true"></div>
+            </div>
+            <div class="thumbs" role="list">
+                <button class="thumb is-active" data-src="assets/prod-1.jpg" aria-current="true">
+                    <img src="assets/prod-1.jpg" alt="Thumbnail 1" />
+                </button>
+                <button class="thumb" data-src="assets/prod-2.jpg">
+                    <img src="assets/prod-2.jpg" alt="Thumbnail 2" />
+                </button>
+                <button class="thumb" data-src="assets/prod-3.jpg">
+                    <img src="assets/prod-3.jpg" alt="Thumbnail 3" />
+                </button>
+                <button class="thumb" data-src="assets/prod-4.jpg">
+                    <img src="assets/prod-4.jpg" alt="Thumbnail 4" />
+                </button>
+            </div>
+        </section>
+
+        <section class="details">
+            <h1 class="title">Nike Field General Shoes for Men</h1>
+            <div class="meta">
+                <div class="rating" aria-label="4.6 out of 5 stars">
+                    ⭐️⭐️⭐️⭐️☆ <span class="rating-count">(128)</span>
+                </div>
+                <div class="sku">SKU: SNK-001</div>
+            </div>
+
+            <div class="price-row">
+                <span class="price" id="price" data-base="4499">₹4,499</span>
+                <span class="compare">₹5,999</span>
+                <span class="badge">In stock</span>
+            </div>
+
+            <p class="desc">
+                Lightweight everyday trainers with breathable knit upper, cushioned midsole, and grippy outsole for
+                all‑day comfort. Built for daily miles and street style.
+            </p>
+
+            <form class="purchase" id="purchaseForm">
+                <div class="option">
+                    <label class="label">Color</label>
+                    <div class="swatches" role="radiogroup" aria-label="Color">
+                        <button type="button" class="swatch is-active" role="radio" aria-checked="true"
+                            data-attr="color" data-value="Black" style="--sw:#222"></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" data-attr="color"
+                            data-value="White" style="--sw:#eee; border:1px solid #ddd"></button>
+                        <button type="button" class="swatch" role="radio" aria-checked="false" data-attr="color"
+                            data-value="Navy" style="--sw:#23395b"></button>
+                    </div>
+                </div>
+
+                <div class="option">
+                    <label for="size" class="label">Size</label>
+                    <div class="sizes" role="radiogroup" aria-label="Size" id="sizes">
+                        <button type="button" class="size is-active" role="radio" aria-checked="true" data-attr="size"
+                            data-value="UK 7">UK 7</button>
+                        <button type="button" class="size" role="radio" aria-checked="false" data-attr="size"
+                            data-value="UK 8">UK 8</button>
+                        <button type="button" class="size" role="radio" aria-checked="false" data-attr="size"
+                            data-value="UK 9">UK 9</button>
+                        <button type="button" class="size" role="radio" aria-checked="false" data-attr="size"
+                            data-value="UK 10">UK 10</button>
+                    </div>
+                </div>
+
+                <div class="qty-row">
+                    <label for="qty" class="label">Quantity</label>
+                    <div class="qty">
+                        <button type="button" class="qty-btn" id="decQty" aria-label="Decrease quantity">−</button>
+                        <input id="qty" type="number" min="1" step="1" value="1" inputmode="numeric" />
+                        <button type="button" class="qty-btn" id="incQty" aria-label="Increase quantity">+</button>
+                    </div>
+                </div>
+
+                <div class="cta-row">
+                    <button type="button" class="btn primary" id="addToCart">Add to cart</button>
+                    <button type="button" class="btn ghost" id="buyNow">Buy now</button>
+                </div>
+            </form>
+
+            <ul class="bullets">
+                <li>Free delivery over ₹999</li>
+                <li>7‑day return policy</li>
+                <li>COD available</li>
+            </ul>
+        </section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+        <div class="cart-header">
+            <h2 id="cartTitle">Your Cart</h2>
+            <button id="closeCartBtn" aria-label="Close cart">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="totals">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₹0</strong>
+            </div>
+            <button class="btn primary" id="checkoutBtn">Checkout</button>
+        </div>
+    </aside>
+
+    <div class="backdrop" id="backdrop" hidden></div>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
